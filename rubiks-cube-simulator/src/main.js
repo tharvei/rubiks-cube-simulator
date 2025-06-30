@@ -1,5 +1,4 @@
 // src/main.js
-import * as THREE from 'three';
 import { Cube } from './Cube.js';
 import { Controls } from './Controls.js';
 import { UI } from './UI.js';
@@ -15,9 +14,9 @@ function init() {
     camera.position.z = 5;
 
     // Set up the renderer
-    renderer = new THREE.WebGLRenderer({ antialias: true });
+    const canvas = document.getElementById('cubeCanvas');
+    renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(renderer.domElement);
 
     // Set up lighting
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
